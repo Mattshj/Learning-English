@@ -1,5 +1,10 @@
-import React from 'react'
-import {Text, View, Button, StyleSheet, ScrollView} from 'react-native'
+import React, {Component} from 'react'
+import {Text, Image,} from 'react-native'
+import LoginStyles from '../styles/LoginStyle'
+import MyHeader from './myHeader'
+import {Container, Content, Button,Form, View, Item, Label, Input, Icon} from "native-base";
+import Wallpaper from "./Wallpaper";
+import logo from "../assets/images/logo.png"
 
 class Login extends React.Component {
 
@@ -7,46 +12,44 @@ class Login extends React.Component {
         super(props)
     }
 
-    static navigationOptions = {
-        title: 'Welcome to CNN news',
-        backgroundColor: '#ff6177',
-    };
-
     render() {
 
-         const {navigate} = this.props.navigation;
+        const {navigate} = this.props.navigation;
         return (
-            <View style={{flex: 1,}}>
+            <Container>
+                <Wallpaper>
 
-                <Text allowFontScaling={true}
-
-                      style={styles.txtStyle}>
-                    LOGIN
-                </Text>
-
-                <Button
-
-                    onPress={() => navigate('Signup')}
-                    color={"#ff0a14"}
-                    title={"news"}/>
+                    {/*<MyHeader/>*/}
+                    <Content>
+                        <Image source={logo} style={LoginStyles.LogoView}>
 
 
+                        </Image>
 
 
-            </View>
-        )
+                        <Form style={LoginStyles.FormView}>
+                            <Item stackedLabel>
+                                <Label>Username</Label>
+                                <Input />
+                            </Item>
+                            <Item stackedLabel >
+                                <Label >Password</Label>
+                                <Input  />
+                            </Item>
+                        </Form>
+
+
+                        <Button onPress={() => navigate('Signup', {name: 'Jane'})}
+                                full style={LoginStyles.ButtonView}>
+                            <Text heigh>LOGIN</Text>
+                        </Button>
+                    </Content>
+
+                </Wallpaper>
+            </Container>
+        );
     }
 }
 
-const styles = StyleSheet.create({
-    txtStyle: {
-        flex: 1,
-        backgroundColor: 'rgba(254,246,255,0)',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#000000',
-        fontFamily: 'BOD_PSTC',
-    },
-});
 export default Login
 

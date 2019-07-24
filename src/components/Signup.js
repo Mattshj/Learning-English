@@ -1,5 +1,7 @@
 import React from 'react'
 import {Button, StyleSheet, Text, View} from "react-native";
+import styles from '../styles/SignupStyle'
+
 class Signup extends React.Component {
 
     constructor(props) {
@@ -32,19 +34,6 @@ class Signup extends React.Component {
     }
 }
 
-
-
-
-const styles = StyleSheet.create({
-    txtStyle: {
-        flex: 1,
-        backgroundColor: 'rgba(254,246,255,0)',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#000000',
-        fontFamily: 'BOD_PSTC',
-    },
-});
 
 
 export default Signup
