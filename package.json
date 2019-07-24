@@ -1,0 +1,37 @@
+{
+  "name": "interview",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-preset-react-native": "4.0.0",
+    "jest-expo": "^33.0.2",
+    "react-native-scripts": "^2.0.1",
+    "react-test-renderer": "16.3.1"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "expo": "^33.0.7",
+    "native-base": "^2.12.2",
+    "npm": "^6.10.2",
+    "react": "16.3.1",
+    "react-native": "^0.59.9",
+    "react-native-gesture-handler": "^1.0.15",
+    "react-navigation": "^3.11.0"
+
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts"
+    ]
+  }
+}
