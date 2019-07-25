@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Text, Image,} from 'react-native'
 import LoginStyles from '../styles/LoginStyle'
-import MyHeader from './myHeader'
 import {Container, Content, Button,Form, View, Item, Label, Input, Icon} from "native-base";
 import Wallpaper from "./Wallpaper";
 import logo from "../assets/images/logo.png"
@@ -39,7 +38,7 @@ class Login extends React.Component {
                         </Form>
 
 
-                        <Button onPress={() => navigate('Signup', {name: 'Jane'})}
+                        <Button onPress={() => navigate('GamePage', {name: 'Jane'})}
                                 full style={LoginStyles.ButtonView}>
                             <Text heigh>LOGIN</Text>
                         </Button>
