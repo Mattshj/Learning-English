@@ -6,13 +6,14 @@ import MyHeader from "./myHeader"
 
 class Gamechoosing extends Component {
     render() {
+        const {navigate} = this.props.navigation;
         return (
             <Container>
                 <Wallpaper>
                     <MyHeader/>
                     <Content>
                         <Text style={{marginLeft: "25%", marginTop: 100}}> Choose type of the game </Text>
-                        <Button rounded style={styles.button1}>
+                        <Button rounded style={styles.button1} onPress={() => navigate('AnimalPage')}>
                             <Text>ANIMAL</Text>
                         </Button>
                         <Button rounded style={styles.button2}>

@@ -4,4 +4,5 @@
 
 import {AppRegistry} from 'react-native';
 import App from './App';
-AppRegistry.registerComponent("interview", () => App);
+import animal from './src/components/Animalpage'
+AppRegistry.registerComponent("interview", () => animal);

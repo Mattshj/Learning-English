@@ -38,7 +38,7 @@ class Login extends React.Component {
                         </Form>
 
 
-                        <Button onPress={() => navigate('GamePage', {name: 'Jane'})}
+                        <Button onPress={() => navigate('GamePage')}
                                 full style={LoginStyles.ButtonView}>
                             <Text heigh>LOGIN</Text>
                         </Button>
