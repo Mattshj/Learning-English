@@ -1,6 +1,5 @@
-import React , {Component} from 'react'
-import {Text, View, } from 'react-native'
-import {Header,Title} from "native-base";
+import React, {Component} from 'react'
+import {Header, Title, Left, Button, Icon,Body,Right} from "native-base";
 
 class myHeader extends React.Component {
 
@@ -11,14 +10,20 @@ class myHeader extends React.Component {
     render() {
 
         return (
-                <Header androidStatusBarColor="#7b1fa2" style={{backgroundColor:"#9c27b0" , height:40}}>
-                <Title>
-                WELCOME
-                </Title>
+            <Header androidStatusBarColor="#7b1fa2" style={{backgroundColor: "#9c27b0", height: 40}}>
+                <Left>
+                    <Button transparent>
+                        <Icon name='menu'/>
+                    </Button>
+                </Left>
+                <Body>
+                    <Title>Welcome</Title>
+                </Body>
+                <Right/>
 
-
-                </Header>
+            </Header>
         );
     }
 }
+
 export default myHeader
