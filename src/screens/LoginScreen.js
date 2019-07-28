@@ -4,6 +4,7 @@ import LoginStyles from '../styles/LoginStyle'
 import {Container, Content, Button, Form, View, Item, Label, Input, Icon} from "native-base";
 import Wallpaper from "../components/Wallpaper";
 import logo from "../assets/images/logo.png"
+import wallpaperPicture from "../assets/images/wallpaper6.jpg"
 
 class LoginScreen extends React.Component {
 
@@ -15,10 +16,10 @@ class LoginScreen extends React.Component {
 
         const {navigate} = this.props.navigation;
         return (
-            <Container>
-                <Wallpaper>
 
-                    {/*<MyHeader/>*/}
+            <Container>
+                <Wallpaper source={wallpaperPicture}>
+
                     <Content>
                         <Image source={logo} style={LoginStyles.LogoView}>
                         </Image>
@@ -26,15 +27,21 @@ class LoginScreen extends React.Component {
                             <Item stackedLabel>
                                 <Label>Username</Label>
                                 <Input/>
+                                <Icon name="contact" style={LoginStyles.IconView} />
                             </Item>
                             <Item stackedLabel>
                                 <Label>Password</Label>
-                                <Input/>
+                                <Input secureTextEntry={true}/>
+                                <Icon name="lock" style={LoginStyles.IconView} />
                             </Item>
                         </Form>
-                        <Button onPress={() => navigate('GameChoosing')}
-                                full style={LoginStyles.ButtonView}>
+                        <Button onPress={() => navigate('GameChoosingScreen')}
+                                full style={LoginStyles.LogInButtonView}>
                             <Text heigh>LOGIN</Text>
+                        </Button>
+                        <Button transparent onPress={() => navigate('SignUpScreen')}
+                                full style={LoginStyles.SignUpButtonView}>
+                            <Text heigh>sign up?</Text>
                         </Button>
                     </Content>
 

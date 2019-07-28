@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {Header, Title, Left, Button, Icon,Body,Right} from "native-base";
+import logo from "../assets/images/react.png";
+import {Image} from "react-native";
 
 class myHeader extends React.Component {
 
@@ -10,16 +12,20 @@ class myHeader extends React.Component {
     render() {
 
         return (
-            <Header androidStatusBarColor="#7b1fa2" style={{backgroundColor: "#9c27b0", height: 40}}>
+            <Header androidStatusBarColor="#e65100" style={{backgroundColor: "#fb8c00", height: 60}}>
                 <Left>
-                    <Button transparent>
-                        <Icon name='menu'/>
+                    <Button transparent >
+                        <Icon name="arrow-round-back"/>
                     </Button>
                 </Left>
                 <Body>
                     <Title>Welcome</Title>
                 </Body>
-                <Right/>
+                <Right>
+                    <Image source={logo} style={{width:70, height: 60}} resizeMode='stretch'  >
+                    </Image>
+
+                </Right>
 
             </Header>
         );

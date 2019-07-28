@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {ImageBackground, StyleSheet} from 'react-native';
 import {Container, Content, Button, Form, View, Item, Label, Input, Icon, Text} from "native-base";
-import Wallpaper from "./Wallpaper";
-import MyHeader from "./myHeader"
+import Wallpaper from "../components/Wallpaper";
+import MyHeader from "../components/myHeader"
 
-class Gamechoosing extends Component {
+class GameChoosingScreen extends Component {
     render() {
         const {navigate} = this.props.navigation;
         return (
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
         marginRight: "30%",
     }
 });
-export default Gamechoosing
+export default GameChoosingScreen

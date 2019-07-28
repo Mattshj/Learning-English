@@ -5,16 +5,26 @@ const LoginStyles = StyleSheet.create({
             width: "60%",
             marginLeft: "20%",
             marginRight: "20%",
-            marginTop: 120,
+            marginTop: 65,
             // height: 50,
         },
-        ButtonView: {
+        LogInButtonView: {
+            backgroundColor: "#fb8c00",
             width: "60%",
             height: 50,
             marginLeft: "20%",
-            marginRight:"20%",
+            marginRight: "20%",
             marginTop: 20,
-            borderRadius:20,
+            borderRadius: 20,
+
+        },
+        SignUpButtonView: {
+          // justifyContent:'flex-end',
+            marginLeft:"20%",
+            marginRight:"60%"
+        },
+        IconView: {
+            marginLeft: "15%",
 
         },
         LogoView: {
