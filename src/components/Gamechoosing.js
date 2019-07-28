@@ -14,13 +14,13 @@ class Gamechoosing extends Component {
                     <Content>
                         <Text style={{marginLeft: "25%", marginTop: 100}}> Choose type of the game </Text>
                         <Button rounded style={styles.button1} onPress={() => navigate('animalScreen')}>
-                            <Text>ANIMAL</Text>
+                            <Text>Animal</Text>
                         </Button>
-                        <Button rounded style={styles.button2}onPress={() => navigate('humanbodyScreen')}>
+                        <Button rounded style={styles.button2} onPress={() => navigate('humanBodyScreen')}>
                             <Text>HumanBodyAnatomy</Text>
                         </Button>
-                        <Button rounded style={styles.button3}>
-                            <Text>COLOR</Text>
+                        <Button rounded style={styles.button3} onPress={() => navigate('FoodScreen')}>
+                            <Text>Food</Text>
                         </Button>
                     </Content>
                 </Wallpaper>

@@ -2,10 +2,10 @@ import React, {Component} from 'react'
 import {Text, Image,} from 'react-native'
 import LoginStyles from '../styles/LoginStyle'
 import {Container, Content, Button, Form, View, Item, Label, Input, Icon} from "native-base";
-import Wallpaper from "./Wallpaper";
+import Wallpaper from "../components/Wallpaper";
 import logo from "../assets/images/logo.png"
 
-class Login extends React.Component {
+class LoginScreen extends React.Component {
 
     constructor(props) {
         super(props)
@@ -32,7 +32,7 @@ class Login extends React.Component {
                                 <Input/>
                             </Item>
                         </Form>
-                        <Button onPress={() => navigate('Gamechoosing')}
+                        <Button onPress={() => navigate('GameChoosing')}
                                 full style={LoginStyles.ButtonView}>
                             <Text heigh>LOGIN</Text>
                         </Button>
@@ -44,5 +44,5 @@ class Login extends React.Component {
     }
 }
 
-export default Login
+export default LoginScreen
 

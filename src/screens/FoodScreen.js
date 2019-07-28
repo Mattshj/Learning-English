@@ -1,8 +1,8 @@
 import React from 'react'
 import {ScrollView, Image, Text, default as Alert} from 'react-native'
 
-import * as d from "../assets/data/humanbodydata"
-import Basegame from "./Basegame";
+import * as d from "../assets/data/fooddata"
+import Basegame from "../components/Basegame";
 
 
 class animalScreen extends React.Component {
@@ -14,10 +14,7 @@ class animalScreen extends React.Component {
 
     render() {
         return (
-            <ScrollView>
-
-                <Basegame data={d.humanbodydata}></Basegame>
-            </ScrollView>
+                <Basegame data={d.fooddata}></Basegame>
         )
     }
 }
