@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
-import {ImageBackground, StyleSheet} from 'react-native';
-import {Container, Content, Button, Form, View, Item, Label, Input, Icon, Text} from "native-base";
+import {Image, ImageBackground, Text} from 'react-native';
+import {Container, Content, Button, Form, View, Item, Label, Input, Icon} from "native-base";
 import Wallpaper from "../components/Wallpaper";
 import MyHeader from "../components/myHeader"
+import GameChoosingStyle from "../styles/GameChoosingStyle"
+import FoodIcon from "../assets/images/burger.png";
+import HumanBodyIcon from "../assets/images/human.png";
+import AnimalIcon from "../assets/images/animal.png"
 
 class GameChoosingScreen extends Component {
     render() {
@@ -12,15 +16,22 @@ class GameChoosingScreen extends Component {
                 <Wallpaper>
                     <MyHeader/>
                     <Content>
-                        <Text style={{marginLeft: "25%", marginTop: 100}}> Choose type of the game </Text>
-                        <Button rounded style={styles.button1} onPress={() => navigate('animalScreen')}>
-                            <Text>Animal</Text>
+                        <Text style={GameChoosingStyle.TextStyle}> Choose type of the game </Text>
+                        <Button rounded style={GameChoosingStyle.AnimalButton}
+                                onPress={() => navigate('animalScreen')}>
+                            <Text style={{marginLeft: 50}} heigh>Animal</Text>
+                            <Image source={AnimalIcon} style={GameChoosingStyle.FoodIconView} resizeMode='stretch'/>
                         </Button>
-                        <Button rounded style={styles.button2} onPress={() => navigate('humanBodyScreen')}>
-                            <Text>HumanBodyAnatomy</Text>
+                        <Button rounded style={GameChoosingStyle.HumanBodyButton}
+                                onPress={() => navigate('humanBodyScreen')}>
+                            <Text>Human body anatomy</Text>
+                            <Image source={HumanBodyIcon} style={GameChoosingStyle.HumanBodyIconView}
+                                   resizeMode='stretch'/>
                         </Button>
-                        <Button rounded style={styles.button3} onPress={() => navigate('FoodScreen')}>
-                            <Text>Food</Text>
+                        <Button rounded style={GameChoosingStyle.FoodButton}
+                                onPress={() => navigate('FoodScreen')}>
+                            <Text style={GameChoosingStyle.FoodTextView}>Food</Text>
+                            <Image source={FoodIcon} style={GameChoosingStyle.FoodIconView} resizeMode='stretch'/>
                         </Button>
                     </Content>
                 </Wallpaper>
@@ -29,25 +40,4 @@ class GameChoosingScreen extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    button1: {
-        // backgroundImage:source={wallpaper},
-        marginTop: 120,
-        flex: 1,
-        marginLeft: "30%",
-        marginRight: "30%",
-    },
-    button2: {
-        marginTop: 10,
-        flex: 1,
-        marginLeft: "30%",
-        marginRight: "30%",
-    },
-    button3: {
-        marginTop: 10,
-        flex: 1,
-        marginLeft: "30%",
-        marginRight: "30%",
-    }
-});
 export default GameChoosingScreen
