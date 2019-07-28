@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {StyleSheet, ImageBackground} from 'react-native';
 
-import wallpaper from '../assets/images/wallpaper.png';
 
 export default class Wallpaper extends Component {
     render() {
         return (
-            <ImageBackground style={styles.picture} source={wallpaper}>
+            <ImageBackground style={styles.picture} source={this.props.source}>
                 {this.props.children}
             </ImageBackground>
         );

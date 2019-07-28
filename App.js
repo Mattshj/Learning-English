@@ -1,13 +1,16 @@
 import React from 'react';
 import {createStackNavigator, createAppContainer} from 'react-navigation'
 import Login from "./src/components/Login"
-import GamePage from "./src/components/Gamechoosing"
-import Animalpage from "./src/components/Animalpage";
-
+import Gamechoosing from "./src/components/Gamechoosing"
+import animalScreen from "./src/components/AnimalScreen"
+import humanbodyScreen from "./src/components/HumanBodyScreen"
+import { Root } from "native-base";
 const MainNavigator = createStackNavigator({
-         Login: {screen: Login},
-        GamePage: {screen: GamePage},
-        AnimalPage: {screen: Animalpage}
+        Login: {screen: Login},
+        Gamechoosing: {screen: Gamechoosing},
+        animalScreen: {screen: animalScreen},
+        humanbodyScreen: {screen: humanbodyScreen}
+
     },
 
     {
@@ -18,4 +21,8 @@ const MainNavigator = createStackNavigator({
 
 const App = createAppContainer(MainNavigator);
 
-export default App;
+// export default ;
+export default () =>
+    <Root>
+        <App />
+    </Root>;
