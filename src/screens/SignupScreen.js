@@ -92,7 +92,6 @@ class SignupScreen extends React.Component {
                             this.state.lastname,
                             this.state.username,
                             this.state.password,
-                            this.props.navigation,
                         )}
 
 
@@ -126,7 +125,7 @@ class SignupScreen extends React.Component {
 
 }
 
-function saveData(firstname, lastname, username, password,navigation) {
+function saveData(firstname, lastname, username, password) {
     let obj = {
         first: firstname,
         last: lastname,
@@ -135,8 +134,6 @@ function saveData(firstname, lastname, username, password,navigation) {
 
     };
     AsyncStorage.setItem(username, JSON.stringify(obj));
-    const {navigate} = navigation;
-    navigate('Login');
 }
 
 
