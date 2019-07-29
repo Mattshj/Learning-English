@@ -5,7 +5,7 @@ const SignUpStyles = StyleSheet.create({
         width: "60%",
         marginLeft: "20%",
         marginRight: "20%",
-        marginTop: 65,
+        marginTop: 15,
     },
     SignUpButtonView: {
         backgroundColor: "#fb8c00",

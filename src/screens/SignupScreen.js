@@ -1,18 +1,22 @@
 import React from 'react'
-import {Text, Image,} from 'react-native'
+import {AsyncStorage, Text,} from 'react-native'
 import SignUpStyles from '../styles/SignupStyle'
 import {Container, Content, Button, Form, View, Item, Label, Input, Icon, Toast} from "native-base";
 import Wallpaper from "../components/Wallpaper";
 import wallpaperPicture from "../assets/images/wallpaper7.jpg";
-import MyHeader from "../components/myHeader"
+
+// import * as AsyncSorage from "react-native/Libraries/Storage/AsyncStorage";
 class SignupScreen extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
+            firstname: "",
+            lastname: "",
+            username: "",
             checkPassword: false,//checking password and confirm password
-            password:"",
-            confirmPassword:"",
+            password: "",
+            confirmPassword: "",
         }
     }
 
@@ -27,17 +31,35 @@ class SignupScreen extends React.Component {
                         <Form style={SignUpStyles.FormView}>
                             <Item stackedLabel>
                                 <Label>First name</Label>
-                                <Input/>
+                                <Input onChangeText={(txt) => {
+                                    this.setState({
+                                        firstname: txt
+                                    })
+                                }}
+                                       value={this.state.firstname}
+                                />
                             </Item>
                             <Item stackedLabel>
                                 <Label>Last name</Label>
-                                <Input/>
+                                <Input onChangeText={(txt) => {
+                                    this.setState({
+                                        lastname: txt
+                                    })
+                                }}
+                                       value={this.state.lastname}
+                                />
                             </Item>
 
 
                             <Item stackedLabel>
                                 <Label>Username</Label>
-                                <Input/>
+                                <Input onChangeText={(txt) => {
+                                    this.setState({
+                                        username: txt
+                                    })
+                                }}
+                                       value={this.state.username}
+                                />
                                 <Icon name="contact" style={SignUpStyles.IconView}/>
                             </Item>
                             <Item stackedLabel>
@@ -66,21 +88,33 @@ class SignupScreen extends React.Component {
                                 <Icon name="lock" style={SignUpStyles.IconView}/>
                             </Item>
                         </Form>
-                        <Button onPress={() => {
-                            if(this.state.password===this.state.confirmPassword)
-                            {
-                                navigate('GameChoosingScreen')
+                        <Button onPress={saveData(this.state.firstname,
+                            this.state.lastname,
+                            this.state.username,
+                            this.state.password,
+                            this.props.navigation,
+                        )}
 
-                            }
-                            else {
-                                Toast.show({
-                                    text: "passwords doesnt match",
-                                });
-                            }
-                            }}
+
+                            // () =>
+                            // {
+
+                            // if(this.state.password===this.state.confirmPassword)
+                            // {
+                            //     navigate('GameChoosingScreen')
+                            //
+                            // }
+                            // else {
+                            //     Toast.show({
+                            //         text: "passwords doesnt match",
+                            //     });
+                            // }
+                            // }
+                            // }
                                 full style={SignUpStyles.SignUpButtonView}>
                             <Text heigh>SIGN UP</Text>
                         </Button>
+
 
                     </Content>
 
@@ -90,6 +124,19 @@ class SignupScreen extends React.Component {
     }
 
 
+}
+
+function saveData(firstname, lastname, username, password,navigation) {
+    let obj = {
+        first: firstname,
+        last: lastname,
+        user: username,
+        pass: password,
+
+    };
+    AsyncStorage.setItem(username, JSON.stringify(obj));
+    const {navigate} = navigation;
+    navigate('Login');
 }
 
 

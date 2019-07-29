@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Image, ImageBackground, StyleSheet} from 'react-native';
-import {Container, Content, Button, Form, View, Item, Label, Input, Icon, Text, Toast} from "native-base";
+import {Image,} from 'react-native';
+import {Container, Content, Button, View, Input, Icon, Text, Toast} from "native-base";
 import MyHeader from "./myHeader";
 import * as Alert from "react-native/Libraries/Alert/Alert";
 import Sound from "react-native-sound";

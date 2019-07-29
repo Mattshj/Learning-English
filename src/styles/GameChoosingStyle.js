@@ -10,7 +10,6 @@ const GameChoosingStyle = StyleSheet.create({
         },
         AnimalButton: {
             backgroundColor: "#fb8c00",
-            // backgroundImage:source={wallpaper},
             marginTop: 80,
             flex: 1,
             marginLeft: "20%",
@@ -31,19 +30,14 @@ const GameChoosingStyle = StyleSheet.create({
             marginRight: "20%",
         },
         HumanBodyIconView: {
-            // justifyContent: 'flex-end',
             marginLeft: 30,
             width: 40,
             height: 43,
         },
         FoodTextView: {
-            // justifyContent: 'flex-end',
             marginLeft: 60,
-            // width: 40,
-            // height: 43,
         },
         FoodIconView: {
-            // justifyContent: 'flex-end',
             marginLeft: 90,
             width: 40,
             height: 43,

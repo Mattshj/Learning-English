@@ -10,15 +10,12 @@ class myHeader extends React.Component {
     }
 
     render() {
-        // const {navigate} = this.props.navigation;
         return (
             <Header androidStatusBarColor="#e65100" style={{backgroundColor: "#fb8c00", height: 60}}>
                 <Left>
                     <Button transparent
-                            // onPress={() => navigate('Login')}
                     >
                         <Icon name={this.props.iconName}/>
-                        {/*<Icon name="arrow-round-back"/>*/}
                     </Button>
                 </Left>
                 <Body>
