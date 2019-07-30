@@ -1,6 +1,5 @@
 import React from 'react'
 import {Text,} from 'react-native'
-// import {AsyncStorage, Text,} from 'react-native'
 import SignUpStyles from '../styles/SignupStyle'
 import {Container, Content, Button, Form, View, Item, Label, Input, Icon, Toast} from "native-base";
 import Wallpaper from "../components/Wallpaper";
@@ -8,7 +7,6 @@ import wallpaperPicture from "../assets/images/wallpaper7.jpg";
 import MyHeader from "../components/myHeader";
 import AsyncStorage from '@react-native-community/async-storage';
 
-// import * as AsyncSorage from "react-native/Libraries/Storage/AsyncStorage";
 class SignupScreen extends React.Component {
 
     constructor(props) {
@@ -99,21 +97,6 @@ class SignupScreen extends React.Component {
                         }
 
 
-                            // () =>
-                            // {
-
-                            // if(this.state.password===this.state.confirmPassword)
-                            // {
-                            //     navigate('GameChoosingScreen')
-                            //
-                            // }
-                            // else {
-                            //     Toast.show({
-                            //         text: "passwords doesnt match",
-                            //     });
-                            // }
-                            // }
-                            // }
                                 full style={SignUpStyles.SignUpButtonView}>
                             <Text heigh>SIGN UP</Text>
                         </Button>
