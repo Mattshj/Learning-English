@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
-import {Text, Image, AsyncStorage,} from 'react-native'
+import {Text, Image,} from 'react-native'
 import LoginStyles from '../styles/LoginStyle'
 import {Container, Content, Button, Form, View, Item, Label, Input, Icon} from "native-base";
 import Wallpaper from "../components/Wallpaper";
 import logo from "../assets/images/logo.png"
 import wallpaperPicture from "../assets/images/wallpaper6.jpg"
-
+import AsyncStorage from '@react-native-community/async-storage';
 class LoginScreen extends React.Component {
 
     constructor(props) {
@@ -76,7 +76,8 @@ class LoginScreen extends React.Component {
             if (parsed.pass === this.state.password) {
                 const {navigate} = this.props.navigation;
                 navigate('GameChoosingScreen');
-            } else {
+            }
+            else {
                 alert("wrong username or password");
             }
         } catch (error) {

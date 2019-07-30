@@ -4,7 +4,7 @@ import {Container, Content, Button, View, Input, Icon, Text, Toast} from "native
 import MyHeader from "./myHeader";
 import * as Alert from "react-native/Libraries/Alert/Alert";
 import Sound from "react-native-sound";
-import BaseGameStyle from "../styles/BaseGameStyle"
+import GameStyle from "../styles/GameStyle"
 import SubmitIcon from "../assets/images/submit.png";
 
 function onPressButtonPlay(URL) {
@@ -27,7 +27,7 @@ function onPressButtonPlay(URL) {
 
 }
 
-class BaseGame extends Component {
+class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -43,20 +43,20 @@ class BaseGame extends Component {
 
 
     render() {
-
+        const {params} = this.props.navigation.state;
         return (
             <Container>
-                <MyHeader iconName="menu"/>
+                <MyHeader iconName="arrow-round-back"   onPress={() => this.props.navigation.goBack()}/>
                 <Content>
 
                     <View style={{flexDirection: 'row'}}>
-                        <View style={BaseGameStyle.TextStyle}>
+                        <View style={GameStyle.TextStyle}>
                             <Text>{this.state.NumberOfQuestion.toString() + "/5"}</Text>
                         </View>
                         <Button rounded
-                                style={BaseGameStyle.SoundButtonStyle}
+                                style={GameStyle.SoundButtonStyle}
                                 onPress={() => {
-                                    return onPressButtonPlay(this.props.data[this.state.NumberOfQuestion].SoundUrl);
+                                    return onPressButtonPlay(params.data[this.state.NumberOfQuestion].SoundUrl);
                                 }}
                         >
                             <Icon name='volume-high'/>
@@ -65,7 +65,7 @@ class BaseGame extends Component {
 
 
                     <Input placeholder='Enter your answer'
-                           style={BaseGameStyle.InputStyle}//todo
+                           style={GameStyle.InputStyle}//todo
                            onChangeText={(txt) => {
                                this.setState({
                                    answer: txt
@@ -76,13 +76,16 @@ class BaseGame extends Component {
                     <Button
 
                         disabled={this.state.disableSubmitButton}
-                        style={BaseGameStyle.SubmitButtonStyle}
+                        style={GameStyle.SubmitButtonStyle}
                         onPress={() => {
 
-                            if (this.state.answer === this.props.data[this.state.NumberOfQuestion].CorrectAnswer) {
-                                this.setState({
-                                    trueCounter: this.state.trueCounter + 1
-                                });
+                            if (this.state.answer === params.data[this.state.NumberOfQuestion].CorrectAnswer) {
+                                this.setState( (prevState)=>{
+                                    return{
+                                        trueCounter:prevState.trueCounter +1
+                                    }
+                                    }
+                                );
 
                                 Toast.show({
                                     text: "successful",
@@ -97,10 +100,13 @@ class BaseGame extends Component {
 
                             }
                             if (this.state.NumberOfQuestion < 5) {
-                                this.setState({
-                                    answer: "",
-                                    NumberOfQuestion: this.state.NumberOfQuestion + 1
-                                });
+                                this.setState( (prevState)=>{
+                                        return{
+                                            answer: "",
+                                            NumberOfQuestion:prevState.NumberOfQuestion +1
+                                        }
+                                    }
+                                );
                             }
                             if (this.state.NumberOfQuestion === 5 && this.state.trueCounter > 2) {
                                 this.setState({
@@ -118,7 +124,7 @@ class BaseGame extends Component {
                         }}
                     >
                         <Text> submit</Text>
-                        <Image source={SubmitIcon} style={BaseGameStyle.SubmitIconStyle} resizeMode='stretch'/>
+                        <Image source={SubmitIcon} style={GameStyle.SubmitIconStyle} resizeMode='stretch'/>
                     </Button>
 
                     {
@@ -129,11 +135,11 @@ class BaseGame extends Component {
                     }
                     {
                         this.state.resultWin ?
-                            <Text style={BaseGameStyle.ResultWinStyle}>    you won , passed this level</Text> : null
+                            <Text style={GameStyle.ResultWinStyle}>      you won , passed this level</Text> : null
                     }
                     {
                         this.state.resultFail ?
-                            <Text style={BaseGameStyle.ResultFailStyle}>              sorry you failed </Text> : null
+                            <Text style={GameStyle.ResultFailStyle}>              sorry you failed </Text> : null
 
                     }
 
@@ -143,4 +149,4 @@ class BaseGame extends Component {
     }
 }
 
-export default BaseGame
+export default Game

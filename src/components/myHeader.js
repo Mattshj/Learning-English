@@ -10,10 +10,12 @@ class myHeader extends React.Component {
     }
 
     render() {
+        const { navigation } = this.props;
         return (
             <Header androidStatusBarColor="#e65100" style={{backgroundColor: "#fb8c00", height: 60}}>
                 <Left>
                     <Button transparent
+                            onPress={this.props.onPress}
                     >
                         <Icon name={this.props.iconName}/>
                     </Button>

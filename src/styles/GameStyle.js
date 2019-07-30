@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-const BaseGameStyle = StyleSheet.create({
+const GameStyle = StyleSheet.create({
         TextStyle: {
             marginLeft: "30%",
             width: '15%',
@@ -48,4 +48,4 @@ const BaseGameStyle = StyleSheet.create({
         }
     }
 );
-export default BaseGameStyle
+export default GameStyle

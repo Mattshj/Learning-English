@@ -21,6 +21,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.1",
     "expo": "^33.0.7",
     "native-base": "^2.12.2",
     "npm": "^6.10.2",

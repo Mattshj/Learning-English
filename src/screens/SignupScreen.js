@@ -1,9 +1,12 @@
 import React from 'react'
-import {AsyncStorage, Text,} from 'react-native'
+import {Text,} from 'react-native'
+// import {AsyncStorage, Text,} from 'react-native'
 import SignUpStyles from '../styles/SignupStyle'
 import {Container, Content, Button, Form, View, Item, Label, Input, Icon, Toast} from "native-base";
 import Wallpaper from "../components/Wallpaper";
 import wallpaperPicture from "../assets/images/wallpaper7.jpg";
+import MyHeader from "../components/myHeader";
+import AsyncStorage from '@react-native-community/async-storage';
 
 // import * as AsyncSorage from "react-native/Libraries/Storage/AsyncStorage";
 class SignupScreen extends React.Component {
@@ -16,14 +19,18 @@ class SignupScreen extends React.Component {
             username: "",
             checkPassword: false,//checking password and confirm password
             password: "",
+            EndOfSignup: false,
             confirmPassword: "",
         }
     }
 
     render() {
-        const {navigate} = this.props.navigation;
+        const {navigation} = this.props;
+
+
         return (
             <Container>
+                <MyHeader iconName="arrow-round-back" onPress={() => this.props.navigation.goBack()}/>
                 <Wallpaper source={wallpaperPicture}>
 
                     <Content>
@@ -88,11 +95,8 @@ class SignupScreen extends React.Component {
                                 <Icon name="lock" style={SignUpStyles.IconView}/>
                             </Item>
                         </Form>
-                        <Button onPress={saveData(this.state.firstname,
-                            this.state.lastname,
-                            this.state.username,
-                            this.state.password,
-                        )}
+                        <Button onPress={this.saveUser
+                        }
 
 
                             // () =>
@@ -122,19 +126,31 @@ class SignupScreen extends React.Component {
         )
     }
 
+    saveUser = async () => {
 
+        try {
+            let user = await AsyncStorage.getItem(this.state.username);
+            let parsed = JSON.parse(user);
+            if (parsed !== null) {
+                alert(" this user is Existence");
+            } else {
+                let obj = {
+                    first: this.state.firstname,
+                    last: this.state.lastname,
+                    user: this.state.username,
+                    pass: this.state.password,
+
+                };
+                alert("user successfully submitted");
+                AsyncStorage.setItem(this.state.username, JSON.stringify(obj));
+            }
+        } catch (error) {
+            alert(" this user is not Existence");
+
+        }
+    }
 }
 
-function saveData(firstname, lastname, username, password) {
-    let obj = {
-        first: firstname,
-        last: lastname,
-        user: username,
-        pass: password,
-
-    };
-    AsyncStorage.setItem(username, JSON.stringify(obj));
-}
 
 
 export default SignupScreen
