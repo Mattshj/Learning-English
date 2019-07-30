@@ -15,10 +15,7 @@ class SignupScreen extends React.Component {
             firstname: "",
             lastname: "",
             username: "",
-            checkPassword: false,//checking password and confirm password
             password: "",
-            EndOfSignup: false,
-            confirmPassword: "",
         }
     }
 
@@ -95,8 +92,6 @@ class SignupScreen extends React.Component {
                         </Form>
                         <Button onPress={this.saveUser
                         }
-
-
                                 full style={SignUpStyles.SignUpButtonView}>
                             <Text heigh>SIGN UP</Text>
                         </Button>
@@ -133,7 +128,6 @@ class SignupScreen extends React.Component {
         }
     }
 }
-
 
 
 export default SignupScreen
