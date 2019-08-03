@@ -56,7 +56,8 @@ class Game extends Component {
                         <Button rounded
                                 style={GameStyle.SoundButtonStyle}
                                 onPress={() => {
-                                    return onPressButtonPlay(params.data[this.state.NumberOfQuestion].SoundUrl);
+
+                                    return onPressButtonPlay(params.data.questions[this.state.NumberOfQuestion].SoundUrl);
                                 }}
                         >
                             <Icon name='volume-high'/>
@@ -79,7 +80,7 @@ class Game extends Component {
                         style={GameStyle.SubmitButtonStyle}
                         onPress={() => {
 
-                            if (this.state.answer === params.data[this.state.NumberOfQuestion].CorrectAnswer) {
+                            if (this.state.answer === params.data.questions[this.state.NumberOfQuestion].CorrectAnswer) {
                                 this.setState( (prevState)=>{
                                     return{
                                         trueCounter:prevState.trueCounter +1
@@ -103,7 +104,7 @@ class Game extends Component {
                                 this.setState( (prevState)=>{
                                         return{
                                             answer: "",
-                                            NumberOfQuestion:prevState.NumberOfQuestion +1
+                                            NumberOfQuestion:prevState.NumberOfQuestion +1,
                                         }
                                     }
                                 );
@@ -123,7 +124,7 @@ class Game extends Component {
 
                         }}
                     >
-                        <Text> submit</Text>
+                        <Text> Submit</Text>
                         <Image source={SubmitIcon} style={GameStyle.SubmitIconStyle} resizeMode='stretch'/>
                     </Button>
 
@@ -135,7 +136,7 @@ class Game extends Component {
                     }
                     {
                         this.state.resultWin ?
-                            <Text style={GameStyle.ResultWinStyle}>      you won , passed this level</Text> : null
+                            <Text style={GameStyle.ResultWinStyle}>     you won , passed this level</Text> : null
                     }
                     {
                         this.state.resultFail ?
